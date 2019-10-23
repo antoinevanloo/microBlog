@@ -1,4 +1,4 @@
-package inscription.modele;
+package blog.modele;
 
 import java.util.Date;
 

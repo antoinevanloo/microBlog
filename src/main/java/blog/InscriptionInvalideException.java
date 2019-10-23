@@ -1,4 +1,4 @@
-package inscription.modele;
+package blog;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,7 @@
-package inscription.modele;
+package blog.service;
+
+import blog.InscriptionInvalideException;
+import blog.modele.User;
 
 public class InscriptionService {
 	

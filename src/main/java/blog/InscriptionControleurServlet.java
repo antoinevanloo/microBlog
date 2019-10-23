@@ -1,4 +1,4 @@
-	package inscription.web;
+	package blog;
 
 import java.io.IOException;
 
@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import inscription.modele.User;
-import inscription.modele.InscriptionInvalideException;
-import inscription.modele.InscriptionService;
+import blog.modele.User;
+import blog.service.InscriptionService;
 
 @WebServlet("/inscription")
 public class InscriptionControleurServlet extends HttpServlet{

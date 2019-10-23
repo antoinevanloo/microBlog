@@ -1,4 +1,4 @@
-package inscription.web;
+package blog.webFilter;
 
 import java.io.IOException;
 

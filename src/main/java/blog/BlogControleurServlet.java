@@ -1,4 +1,4 @@
-package inscription.web;
+package blog;
 
 import java.io.IOException;
 
