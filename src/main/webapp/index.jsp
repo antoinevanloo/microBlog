@@ -13,6 +13,6 @@
 <header>
     <jsp:include page="WEB-INF/jsp/menu.jsp" />
 </header>
-
+ 	<jsp:include page="WEB-INF/jsp/creationArticle.jsp" />
 </body>
 </html>
