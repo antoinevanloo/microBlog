@@ -13,6 +13,6 @@
 <header>
     <jsp:include page="WEB-INF/jsp/menu.jsp" />
 </header>
-
+<a href="<c:url value="/user"/>">S'inscrire</a>
 </body>
 </html>
