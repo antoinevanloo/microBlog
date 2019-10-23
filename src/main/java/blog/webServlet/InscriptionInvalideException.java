@@ -1,4 +1,4 @@
-package blog;
+package src.main.java.blog.webServlet;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-	package blog;
+	package src.main.java.blog.webServlet;
 
 import java.io.IOException;
 
