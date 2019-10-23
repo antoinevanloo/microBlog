@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Article {
@@ -21,6 +23,7 @@ public class Article {
 	
 	private String contenu;
 	
+	@Temporal(TemporalType.DATE)
 	private Instant datePublication;
 	
 	@ManyToOne
