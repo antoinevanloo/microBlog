@@ -1,15 +1,18 @@
 package blog.service;
 
 import blog.InscriptionInvalideException;
-import blog.modele.User;
+import blog.modele.Personne;
 
 public class InscriptionService {
 	
-	public User inscrire(String email, String motDePasse, String confirmationMotDePasse, boolean approbation) throws InscriptionInvalideException {
+	public Personne inscrire(String nom,String prenom, String motDePasse, String confirmationMotDePasse, boolean approbation) throws InscriptionInvalideException {
 		InscriptionInvalideException ex = new InscriptionInvalideException();
 		
-		if (email == null || ! email.contains("@")) {
-			ex.addMessage("email", "L'email est invalide !");
+		if (nom == null || ! nom.contains("@")) {
+			ex.addMessage("nom", "Le nom est invalide !");
+		}
+		if (prenom == null || ! prenom.contains("@")) {
+			ex.addMessage("prenom", "Le prenom est invalide !");
 		}
 		if (motDePasse == null || motDePasse.length() < 8) {
 			ex.addMessage("motDePasse", "Le mot de passe doit contenir au moins 8 caractères !");
@@ -24,7 +27,11 @@ public class InscriptionService {
 			throw ex;
 		}
 		
-		return new User(email, motDePasse);
+		Personne personne =  new Personne();
+		personne.setMdp(motDePasse);
+		personne.setNom(nom);
+		personne.setPrenom(prenom);
+		return personne;
 	}
 	
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import blog.modele.User;
+import blog.modele.Personne;
 import blog.service.InscriptionService;
 
 @WebServlet("/inscription")
@@ -25,14 +25,15 @@ public class InscriptionControleurServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String email = req.getParameter("email");
+		String nom = req.getParameter("nom");
+		String prenom = req.getParameter("prenom");
 		String motDePasse = req.getParameter("motDePasse");
 		String confirmationMotDePasse = req.getParameter("confirmationMotDePasse");
 		boolean approbation = Boolean.valueOf(req.getParameter("approbation"));
 		try {
 			InscriptionService inscriptionService = new InscriptionService();
-			User user = inscriptionService.inscrire(email, motDePasse, confirmationMotDePasse, approbation);
-			req.setAttribute("inscription", user);
+			Personne personne = inscriptionService.inscrire(nom,prenom, motDePasse, confirmationMotDePasse, approbation);
+			req.setAttribute("inscription", personne);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/validationInscription.jsp");
 			rd.forward(req, resp);
 		} catch (InscriptionInvalideException e) {

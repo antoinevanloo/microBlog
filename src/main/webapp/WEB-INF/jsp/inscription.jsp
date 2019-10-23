@@ -28,9 +28,14 @@
   </header>
 	<form method="post" accept-charset="utf-8">
 		<div>
-			<label for="email">Email : </label>
-			<input id="email" name="email" type="text" value="<c:out value="${param['email']}" />"> 
-			<span class="error"><c:out value="${errors['email']}"/></span>
+			<label for="nom">Nom : </label>
+			<input id="nom" name="nom" type="text" value="<c:out value="${param['nom']}" />">
+			<span class="error"><c:out value="${errors['nom']}"/></span>
+		</div>
+		<div>
+			<label for="prenom">Prenom : </label>
+			<input id="prenom" name="prenom" type="text" value="<c:out value="${param['prenom']}" />">
+			<span class="error"><c:out value="${errors['prenom']}"/></span>
 		</div>
 		<div>
 			<label for="motDePasse">Mot de passe : </label>

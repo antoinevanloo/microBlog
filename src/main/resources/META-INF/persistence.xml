@@ -8,7 +8,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://remotemysql.com/Ga7cBbDj3s" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://remotemysql.com:3306/Ga7cBbDj3s" />
 			<property name="javax.persistence.jdbc.user" value="Ga7cBbDj3s" />
 			<property name="javax.persistence.jdbc.password" value="X3g9wavyUF" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
