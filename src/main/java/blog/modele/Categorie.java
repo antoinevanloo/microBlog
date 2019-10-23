@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Categorie {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer categorieId;
@@ -35,4 +35,5 @@ public class Categorie {
 	}
 	
 	
+
 }
