@@ -55,7 +55,7 @@ public class InscriptionControleurServlet extends HttpServlet{
 			}
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/validationInscription.jsp");
 			rd.forward(req, resp);
-		} catch (InscriptionInvalideException e) {
+		} catch (blog.InscriptionInvalideException e) {
 			req.setAttribute("errors", e.getMessages());
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/inscription.jsp");
 			rd.forward(req, resp);

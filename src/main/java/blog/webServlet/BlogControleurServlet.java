@@ -26,7 +26,9 @@ public class BlogControleurServlet extends HttpServlet{
             EntityManager em = emf.createEntityManager();
             try {
                 ArticleDao articleDao = new ArticleDao(em);
+                em.getTransaction().begin();
                 List<Article>  articles = articleDao.get();
+                em.getTransaction().commit();
 
                 req.setAttribute("articles", articles);
             } finally {
