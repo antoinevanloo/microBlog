@@ -1,6 +1,7 @@
 package blog.modele;
 
 import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Article {
 	private String contenu;
 	
 	@Temporal(TemporalType.DATE)
-	private Instant datePublication;
+	private Date datePublication;
 	
 	@ManyToOne
 	@JoinColumn(name = "personneId")
@@ -62,11 +63,11 @@ public class Article {
 		this.contenu = contenu;
 	}
 
-	public Instant getDatePublication() {
+	public Date getDatePublication() {
 		return datePublication;
 	}
 
-	public void setDatePublication(Instant datePublication) {
+	public void setDatePublication(Date datePublication) {
 		this.datePublication = datePublication;
 	}
 
