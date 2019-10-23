@@ -27,7 +27,7 @@ public class BlogControleurServlet extends HttpServlet{
             try {
                 ArticleDao articleDao = new ArticleDao(em);
                 List<Article>  articles = articleDao.get();
-                
+
                 req.setAttribute("articles", articles);
             } finally {
                 em.close();
