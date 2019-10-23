@@ -2,6 +2,9 @@
 
 import java.io.IOException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import blog.dao.PersonneDao;
 import blog.modele.Personne;
 import blog.service.InscriptionService;
 
@@ -16,6 +20,8 @@ import blog.service.InscriptionService;
 public class InscriptionControleurServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("blog");
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,6 +40,19 @@ public class InscriptionControleurServlet extends HttpServlet{
 			InscriptionService inscriptionService = new InscriptionService();
 			Personne personne = inscriptionService.inscrire(nom,prenom, motDePasse, confirmationMotDePasse, approbation);
 			req.setAttribute("inscription", personne);
+			try {
+				EntityManager em = emf.createEntityManager();
+				try {
+					PersonneDao personneDao = new PersonneDao(em);
+					em.getTransaction().begin();
+					personneDao.create(personne);
+					em.getTransaction().commit();
+				} finally {
+					em.close();
+				}
+			} finally {
+				emf.close();
+			}
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/validationInscription.jsp");
 			rd.forward(req, resp);
 		} catch (InscriptionInvalideException e) {
